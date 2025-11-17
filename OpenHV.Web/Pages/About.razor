@@ -1,0 +1,168 @@
+@page "/about"
+
+<PageTitle>About - OpenHV Web Edition</PageTitle>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="mb-4">About OpenHV</h1>
+
+            <div class="about-section mb-5">
+                <h2>What is OpenHV?</h2>
+                <p class="lead">
+                    OpenHV is an open-source real-time strategy game based on the Hard Vacuum design by Daniel Cook.
+                    It's built on the OpenRA engine and features futuristic corporate warfare in a distant future setting.
+                </p>
+                <p>
+                    The game features multiple factions battling for control of resources and territory using advanced
+                    technology, mechs, and strategic warfare. OpenHV aims to be a complete, open-content RTS game
+                    with no proprietary assets required.
+                </p>
+            </div>
+
+            <div class="about-section mb-5">
+                <h2>Web Edition</h2>
+                <p>
+                    This web edition brings the full OpenHV experience to your browser using cutting-edge web technologies.
+                    By leveraging WebAssembly and Blazor, we've successfully ported the entire OpenRA engine to run
+                    natively in web browsers without compromising on performance or features.
+                </p>
+
+                <h4>Key Features:</h4>
+                <ul class="feature-list">
+                    <li><strong>Full Game Experience:</strong> Complete OpenHV gameplay with all units, buildings, and mechanics</li>
+                    <li><strong>Cross-Platform Multiplayer:</strong> Play with desktop users seamlessly</li>
+                    <li><strong>No Installation Required:</strong> Runs directly in your browser</li>
+                    <li><strong>Mobile Support:</strong> Optimized for touch devices and mobile browsers</li>
+                    <li><strong>Progressive Loading:</strong> Smart asset loading for faster startup times</li>
+                </ul>
+            </div>
+
+            <div class="about-section mb-5">
+                <h2>Technology Stack</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Frontend</h5>
+                        <ul>
+                            <li>Blazor WebAssembly</li>
+                            <li>WebGL for graphics rendering</li>
+                            <li>Web Audio API for sound</li>
+                            <li>WebSockets for networking</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Game Engine</h5>
+                        <ul>
+                            <li>OpenRA Engine (WebAssembly)</li>
+                            <li>.NET 8 Runtime</li>
+                            <li>OpenHV Game Logic</li>
+                            <li>Custom Web Adaptations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section mb-5">
+                <h2>Development Status</h2>
+                <div class="alert alert-info">
+                    <h5 class="alert-heading">Early Development</h5>
+                    <p class="mb-0">
+                        This web port is currently in early development. While the foundation is in place,
+                        many features are still being implemented. We're working through the phases outlined
+                        in our development plan to bring you the complete OpenHV experience.
+                    </p>
+                </div>
+
+                <h4>Current Phase: Foundation Setup</h4>
+                <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        Phase 1 of 6
+                    </div>
+                </div>
+
+                <h5>Completed:</h5>
+                <ul class="status-list">
+                    <li class="completed">✅ Blazor WebAssembly project setup</li>
+                    <li class="completed">✅ Canvas and WebGL initialization</li>
+                    <li class="completed">✅ Input handling system</li>
+                    <li class="completed">✅ Basic UI framework</li>
+                </ul>
+
+                <h5>In Progress:</h5>
+                <ul class="status-list">
+                    <li class="in-progress">🔄 OpenRA engine integration</li>
+                    <li class="in-progress">🔄 Asset loading system</li>
+                    <li class="pending">⏳ Graphics pipeline adaptation</li>
+                    <li class="pending">⏳ Audio system conversion</li>
+                </ul>
+            </div>
+
+            <div class="about-section mb-5">
+                <h2>Open Source</h2>
+                <p>
+                    Like the original OpenHV and OpenRA projects, this web port is completely open source.
+                    The code is available for anyone to study, modify, and contribute to.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="https://github.com/OpenHV/OpenHV" class="btn btn-outline-primary" target="_blank">
+                        <i class="bi bi-github"></i> OpenHV Repository
+                    </a>
+                    <a href="https://github.com/OpenRA/OpenRA" class="btn btn-outline-primary" target="_blank">
+                        <i class="bi bi-github"></i> OpenRA Engine
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>Credits</h2>
+                <p>
+                    This web port builds upon the incredible work of the OpenRA and OpenHV development teams.
+                    Special thanks to:
+                </p>
+                <ul>
+                    <li>The OpenRA development team for creating the engine</li>
+                    <li>The OpenHV team for the game content and mechanics</li>
+                    <li>Daniel Cook for the original Hard Vacuum design</li>
+                    <li>The WebAssembly and Blazor teams at Microsoft</li>
+                    <li>All contributors to the open source RTS gaming community</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .about-section {
+        border-bottom: 1px solid #e9ecef;
+        padding-bottom: 2rem;
+    }
+
+    .about-section:last-child {
+        border-bottom: none;
+    }
+
+    .feature-list li {
+        margin-bottom: 0.5rem;
+    }
+
+    .status-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .status-list li {
+        padding: 0.25rem 0;
+    }
+
+    .completed {
+        color: #28a745;
+    }
+
+    .in-progress {
+        color: #ffc107;
+    }
+
+    .pending {
+        color: #6c757d;
+    }
+</style>

@@ -1,0 +1,202 @@
+@page "/game"
+@using Microsoft.JSInterop
+@* TODO: Add back when OpenRA references are configured
+@using OpenRA
+@using OpenRA.Mods.Common
+*@
+@inject IJSRuntime JSRuntime
+
+<PageTitle>OpenHV - Hard Vacuum</PageTitle>
+
+<div class="game-container">
+    <div class="game-header">
+        <h1>OpenHV - Hard Vacuum</h1>
+        <div class="game-controls">
+            @if (!gameStarted)
+            {
+                <button class="btn btn-primary" @onclick="StartGame" disabled="@isLoading">
+                    @if (isLoading)
+                    {
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span>Loading...</span>
+                    }
+                    else
+                    {
+                        <span>Start Game</span>
+                    }
+                </button>
+            }
+            else
+            {
+                <button class="btn btn-secondary" @onclick="StopGame">Stop Game</button>
+            }
+        </div>
+    </div>
+
+    <div class="game-canvas-container">
+        <canvas id="gameCanvas"
+                width="1024"
+                height="768"
+                style="border: 1px solid #ccc; background: #000;">
+            Your browser does not support the HTML5 canvas element.
+        </canvas>
+    </div>
+
+    <div class="game-status">
+        <p>Status: @gameStatus</p>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger">
+                <strong>Error:</strong> @errorMessage
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 20px;
+    }
+
+    .game-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .game-canvas-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .game-status {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+    }
+
+    #gameCanvas {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+
+@code {
+    private bool gameStarted = false;
+    private bool isLoading = false;
+    private string gameStatus = "Ready to start";
+    private string errorMessage = "";
+    private object? gameInstance; // Changed from Game? to object? temporarily
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await InitializeCanvas();
+        }
+    }
+
+    private async Task InitializeCanvas()
+    {
+        try
+        {
+            await JSRuntime.InvokeVoidAsync("initializeGameCanvas", "gameCanvas");
+            gameStatus = "Canvas initialized";
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Failed to initialize canvas: {ex.Message}";
+            gameStatus = "Canvas initialization failed";
+        }
+    }
+
+    private async Task StartGame()
+    {
+        try
+        {
+            isLoading = true;
+            gameStatus = "Loading game engine...";
+            StateHasChanged();
+
+            // Initialize OpenRA game engine
+            await InitializeOpenRAEngine();
+
+            gameStarted = true;
+            gameStatus = "Game running";
+            errorMessage = "";
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Failed to start game: {ex.Message}";
+            gameStatus = "Failed to start";
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task StopGame()
+    {
+        try
+        {
+            if (gameInstance != null)
+            {
+                // TODO: Properly dispose of the game instance when OpenRA is integrated
+                // gameInstance.Dispose();
+                gameInstance = null;
+            }
+
+            gameStarted = false;
+            gameStatus = "Game stopped";
+            errorMessage = "";
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error stopping game: {ex.Message}";
+        }
+
+        StateHasChanged();
+    }
+
+    private async Task InitializeOpenRAEngine()
+    {
+        try
+        {
+            // This is where we'll initialize the OpenRA engine for WebAssembly
+            // For now, this is a placeholder that will be implemented as we progress
+
+            gameStatus = "Initializing OpenRA engine...";
+            StateHasChanged();
+
+            // Simulate engine initialization
+            await Task.Delay(2000);
+
+            // TODO: Implement actual OpenRA engine initialization
+            // - Load mod configuration
+            // - Initialize graphics system
+            // - Set up input handling
+            // - Load game assets
+
+            gameStatus = "Engine initialized (placeholder)";
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"OpenRA engine initialization failed: {ex.Message}", ex);
+        }
+    }
+
+    public void Dispose()
+    {
+        // TODO: Implement proper disposal when OpenRA is integrated
+        // gameInstance?.Dispose();
+    }
+}

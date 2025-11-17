@@ -1,0 +1,141 @@
+﻿@page "/"
+
+<PageTitle>OpenHV - Hard Vacuum Web Edition</PageTitle>
+
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold">OpenHV</h1>
+                <h2 class="h3 text-muted mb-4">Hard Vacuum - Web Edition</h2>
+                <p class="lead">
+                    Experience the classic real-time strategy gameplay of Hard Vacuum directly in your browser.
+                    No downloads, no installations - just pure RTS action powered by WebAssembly.
+                </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="/game" class="btn btn-primary btn-lg px-4 me-md-2">Play Now</a>
+                    <a href="/about" class="btn btn-outline-secondary btn-lg px-4">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="game-preview">
+                    <div class="preview-placeholder">
+                        <i class="bi bi-controller" style="font-size: 4rem; color: #6c757d;"></i>
+                        <p class="text-muted mt-3">Game Preview</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="features-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="feature-card h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-globe2 feature-icon"></i>
+                        <h5 class="card-title">Browser-Based</h5>
+                        <p class="card-text">
+                            Play directly in your web browser with no downloads or installations required.
+                            Compatible with modern browsers on desktop and mobile.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="feature-card h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-people feature-icon"></i>
+                        <h5 class="card-title">Multiplayer Ready</h5>
+                        <p class="card-text">
+                            Join multiplayer battles with cross-platform compatibility.
+                            Play with friends whether they're on desktop or web.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="feature-card h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-lightning feature-icon"></i>
+                        <h5 class="card-title">High Performance</h5>
+                        <p class="card-text">
+                            Powered by WebAssembly for near-native performance.
+                            Enjoy smooth 60fps gameplay with optimized graphics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tech-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3>Powered by Modern Web Technologies</h3>
+                <p class="lead">
+                    This web port leverages cutting-edge technologies to bring the full OpenHV experience to your browser.
+                </p>
+                <div class="tech-badges mt-4">
+                    <span class="badge bg-primary me-2 mb-2">WebAssembly</span>
+                    <span class="badge bg-primary me-2 mb-2">Blazor</span>
+                    <span class="badge bg-primary me-2 mb-2">WebGL</span>
+                    <span class="badge bg-primary me-2 mb-2">Web Audio API</span>
+                    <span class="badge bg-primary me-2 mb-2">.NET 8</span>
+                    <span class="badge bg-primary me-2 mb-2">OpenRA Engine</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-section {
+        padding: 4rem 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    .game-preview {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+        backdrop-filter: blur(10px);
+    }
+
+    .preview-placeholder {
+        padding: 2rem;
+    }
+
+    .features-section {
+        background: #f8f9fa;
+    }
+
+    .feature-card {
+        background: white;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+        color: #667eea;
+        margin-bottom: 1rem;
+    }
+
+    .tech-badges .badge {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+</style>
